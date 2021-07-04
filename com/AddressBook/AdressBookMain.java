@@ -16,7 +16,7 @@ public class AdressBookMain {
 
 	public static void chooseOption() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("choose one option from below \n 1:add contact \n 2:edit contact \n ");
+		System.out.println("choose one option from below \n 1:add contact \n 2:edit contact \n 3:delete contact");
 		int option = scan.nextInt();
 		switch (option) {
 		case 1:
@@ -32,6 +32,9 @@ public class AdressBookMain {
 		case 2:
 			editContact();
 			break;
+		 case 3:
+             deleteContact();
+             break;
 		default:
 			System.out.println("You choose Wrong Option please choose right option");
 
@@ -114,6 +117,22 @@ public class AdressBookMain {
 			System.out.println("Contact Not Found");
 		}
 	}
+	 public static void deleteContact() {
+	        Scanner scan = new Scanner(System.in);
+	        System.out.println("Enter the Contact Person name");
+	        String name = scan.next();
+	        for (int i = 0; i < user.size(); i++) {
+	            if (user.get(i).inputFirstname.equalsIgnoreCase(name)) {
+	                System.out.println("Contact found");
+	                user.remove(i);
+	                System.out.println("Contact Removed From Address Book");
+	                System.out.println(user);
+	                break;
+	            }
+	            System.out.println("Contact not found");
+	        }
+	    }
+
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Address Book Programme");
